@@ -1,0 +1,1 @@
+[My notes](obsidian://open?vault=Notes&file=community%20site%20apis)
