@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upcoming Community Chats</title>
+</head>
+<body>
+    <div id="upcomingChats"></div>
+    <script>
+        fetch('https://reclaimhosting.com/wp-json/wp/v2/tribe_events?tribe_events_cat=742&per_page=3')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var upcomingChatContainer = document.getElementById("upcomingChats");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = '<a href="' + data[i].link + '">' + data[i].title.rendered + '</a>'
+                upcomingChatContainer.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html>

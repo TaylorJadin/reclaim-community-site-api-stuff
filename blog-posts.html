@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>API Test</title>
+    <title>Blog Posts</title>
 </head>
 <body>
-    <div id="myData"></div>
+    <div id="blogPosts"></div>
     <script>
         fetch('https://reclaimhosting.com/wp-json/wp/v2/posts?per_page=5')
             .then(function (response) {
@@ -17,11 +17,11 @@
                 console.log('error: ' + err);
             });
         function appendData(data) {
-            var mainContainer = document.getElementById("myData");
+            var blogPostContainer = document.getElementById("blogPosts");
             for (var i = 0; i < data.length; i++) {
                 var div = document.createElement("div");
-                div.innerHTML = 'Title: ' + data[i].title.rendered + '<br>' + 'URL: ' + data[i].link + '<br>' + 'Excerpt: ' + data[i].excerpt.rendered;
-                mainContainer.appendChild(div);
+                div.innerHTML = '<a href="' + data[i].link + '">' + data[i].title.rendered + '</a>'
+                blogPostContainer.appendChild(div);
             }
         }
     </script>
