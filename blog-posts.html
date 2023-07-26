@@ -6,7 +6,8 @@
 <body>
     <div id="blogPosts"></div>
     <script>
-        fetch('https://reclaimhosting.com/wp-json/wp/v2/posts?per_page=5')
+        fetch('https:/www.reclaimhosting.com/wp-json/wp/v2/posts?per_page=5')
+        // fetch('http://51.81.183.219/wp-json/wp/v2/posts?per_page=5')
             .then(function (response) {
                 return response.json();
             })
